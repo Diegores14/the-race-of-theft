@@ -16,7 +16,7 @@ class Dafebe(pygame.sprite.Sprite):
 		self.m = []
 		correr = ['Dafebe2.png', 'Dafebe3.png', 'Dafebe4.png', 'Dafebe5.png', 'Dafebe1.png', 'Dafebe7.png']
 		saltar = ['Dafebe9.png', 'Dafebe10.png', 'Dafebe11.png', 'Dafebe12.png', 'Dafebe13.png', 'Dafebe14.png', 'Dafebe15.png', 'Dafebe16.png']
-		caer = ['Dafebe17.png','Dafebe18.png']
+		caer = ['Dafebe17.png', 'Dafebe17.png', 'Dafebe17.png', 'Dafebe18.png', 'Dafebe18.png', 'Dafebe18.png']
 		self.aux = 0 
 		aux = []
 		for j in correr:
@@ -59,8 +59,13 @@ class Dafebe(pygame.sprite.Sprite):
 		# if self.rect.y<0:
 		# 	self.rect.y=0
 		# 	self.var_y = 0
-		if self.x > 5:
+		if self.dir ==0 and self.x > 5:
 			self.x = 0
+		if self.dir ==1 and self.x > 7:
+			self.x = 0
+		if self.dir ==2 and self.x > 5:
+			self.x = 0
+			self.dir = 0
 		self.image=self.m[self.dir][self.x]
 
 if __name__=='__main__':
@@ -82,12 +87,13 @@ if __name__=='__main__':
 					# if event.key == pygame.K_DOWN or event.key == pygame.K_s:
 					# 	jp.dir = 0
 					# 	jp.var_y = 1 
-					# if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-					# 	jp.dir = 1
-					# 	jp.var_x = -1
-					# if event.key == pygame.K_UP or event.key == pygame.K_w:
-					# 	jp.dir = 2
-					# 	jp.var_y = -1 
+					if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+						jp.dir = 2
+						jp.x = 0
+						jp.var_x = 1
+					if event.key == pygame.K_UP or event.key == pygame.K_w:
+						jp.dir = 1
+						jp.var_y = -1 
 					if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
 						jp.dir = 0
 						jp.var_x = 3
