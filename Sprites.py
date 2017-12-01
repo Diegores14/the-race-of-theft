@@ -1,8 +1,9 @@
 import pygame
 import random
 import sys
+import configparser
 
-ALTO=500
+ALTO=465
 ANCHO=700
 
 class Dafebe(pygame.sprite.Sprite):
@@ -16,10 +17,10 @@ class Dafebe(pygame.sprite.Sprite):
 		correr = ['Dafebe2.png', 'Dafebe3.png', 'Dafebe4.png', 'Dafebe5.png', 'Dafebe1.png', 'Dafebe7.png']
 		saltar = ['Dafebe9.png', 'Dafebe10.png', 'Dafebe11.png', 'Dafebe12.png', 'Dafebe13.png', 'Dafebe14.png', 'Dafebe15.png', 'Dafebe16.png']
 		caer = ['Dafebe17.png', 'Dafebe17.png', 'Dafebe17.png', 'Dafebe18.png', 'Dafebe18.png', 'Dafebe18.png']
-		self.aux = 21
+		self.aux = 0
 		aux = []
 		for j in correr:
-			aux.appen(pygame.image.load('Imagenes/'+j).convert_alpha())
+			aux.append(pygame.image.load('Imagenes/'+j).convert_alpha())
 		self.m.append(aux)
 		aux = []
 		for j in saltar:
@@ -181,11 +182,34 @@ class Sesagon(pygame.sprite.Sprite):
 			self.var_x = 3
 		self.image=self.m[self.dir][self.x]
 
+class Interfaz():
+	def __init__(self, pantalla,  mapa):
+		self.interprete=configparser.ConfigParser()
+		self.interprete.read(mapa)
+		self.interprete.items('nivel1')
+		# for i in interprete.items(nivel):
+		# 	print(i)
+		# 	if i[0] == 'imagen':
+		# 		self.imagen = pygame.image.load(i[1]).convert_alpha()
+		# 	else:
+		# 		corte = self.imagen.subsurface(eval(interprete.get('cortes',i[0])))
+		# 		for pos in eval(i[1]):
+		# 			pantalla.blit(corte,pos)		
+		# pygame.display.flip()
+
 if __name__=='__main__':
 	pygame.init()
 	pantalla=pygame.display.set_mode([ANCHO,ALTO])
+	# interprete=configparser.ConfigParser()
+	# interprete.read('Mapa.map')
+	# inter = Interfaz(pantalla, 'Mapa.map')
+	pygame.mixer.music.load('Musica/Vegasis_-_Nightwatcher.ogg')
+	pygame.mixer.music.load('Musica/Hannes_Hofkind_-_Emphasize.ogg')
+	pygame.mixer.music.load('Musica/ONSTEAD_-_Nightfall.ogg')
+	pygame.mixer.music.load('Musica/Zero-project_-_Distorted_reality.ogg')
+	pygame.mixer.music.play(-1,0.0)
 	nivel = 1
-	jp = Sesagon()
+	jp = Dafebe()
 	general = pygame.sprite.Group()
 	general.add(jp)
 	reloj=pygame.time.Clock()
