@@ -1,0 +1,22 @@
+[nivel1]
+
+origen=terrenos.png
+mapa = ..........
+       .$$$.....$
+       ...$$$....
+       ..........
+
+[.]
+nombre=cesped
+ux=0
+uy=0
+
+[$]
+nombre=muro
+ux=0
+uy=0
+
+[&]
+nombre=agua
+ux=0
+uy=0

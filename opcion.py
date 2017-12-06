@@ -1,11 +1,11 @@
 import pygame
 from cursor import*
+from configuracion import*
 
 class Opcion:
 
     def __init__(self, fuente, titulo, x, y, paridad, funcion):
-        self.imagen_normal = fuente.render(titulo, 1, (0, 0, 0))
-        #self.imagen_destacada = fuente.render(titulo, 1, (200, 0, 0))
+        self.imagen_normal = fuente.render(titulo, 1, BLANCO)
         self.image = self.imagen_normal
         self.rect = self.image.get_rect()
         self.rect.x = x * paridad
@@ -14,7 +14,7 @@ class Opcion:
         self.x = float(self.rect.x)
 
     def actualizar(self):
-        destino_x = 230
+        destino_x = 100
         self.x += (destino_x  - self.x)
         self.rect.x = int(self.x)
 

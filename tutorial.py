@@ -1,3 +1,4 @@
+import mapas
 
 def tutorial():
-    print "tutorial de la verga"
+    mapas.inicio(3)

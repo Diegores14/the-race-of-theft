@@ -10,15 +10,15 @@ class Menu():
     def __init__(self, opciones):
         self.opciones = []
         fuente = pygame.font.Font('explosive.ttf', 30)
-        x = 210
-        y = 160
+        x = 80
+        y = 210
         p = 1
 
-        self.cursor = Cursor(x - 30, y+12 , 90)
+        self.cursor = Cursor(x - 30, y+10 , 50)
 
         for titulo, f in opciones:
             self.opciones.append(Opcion(fuente, titulo, x, y, p, f))
-            y += 90
+            y += 50
             if p == 1:
                 p -= 1
             else:

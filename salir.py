@@ -1,5 +1,5 @@
 
 def salir():
-    print "bai"
+    #print "bai"
     import sys
     sys.exit(0)

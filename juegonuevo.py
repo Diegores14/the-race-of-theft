@@ -1,3 +1,4 @@
-
+import pygame
+import mapas
 def juegonuevo():
-    print "jueguito"
+    mapas.inicio(1)

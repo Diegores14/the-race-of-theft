@@ -1,3 +1,3 @@
-
+import mapas
 def multijugador():
-    print "multijugador"
+    mapas.inicio(2)

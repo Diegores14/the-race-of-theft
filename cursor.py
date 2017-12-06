@@ -5,7 +5,7 @@ class Cursor:
 
     def __init__(self, x, y, var_y):
 
-         self.image = pygame.image.load('cursor.png')
+         self.image = pygame.image.load('cursorb.png')
          self.rect = self.image.get_rect()
          self.rect.x = x
          self.y_ini = y
@@ -18,7 +18,7 @@ class Cursor:
         self.rect.y = self.y
 
     def seleccionar(self, indice):
-        self.sel = self.y_ini + indice * self.var_y
+        self.sel = self.y_ini + (indice * self.var_y)
 
     def imprimir( self, pantalla):
         pantalla.blit(self.image, self.rect)
